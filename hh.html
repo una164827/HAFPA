@@ -1,0 +1,188 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+		<h2><center>簡式健康表</center><h2>
+
+	</head>
+	
+	<body>
+		<div style="border-width:3px;border-style:solid;border-color:#FFAC55;padding:5px;position:absolute;top:50px;left:250px;height:550px;" >
+		<table style="position:relative;top:-110px;border:2px #FFAC55 solid;padding:5px;" rules="all"cellpadding='10';>	
+			<tbody>
+			
+			<thead><tr><center><th colspan="2">評估項目</th></center></tr></thead>
+			<tr>
+			<td>1.睡眠困難,譬如難以入睡、易醒或早醒<br></td>
+			<td><label><input type="radio" value="0" name=a>完全沒有</label>
+			<label><input type="radio" value="1" name=a>輕微</label>
+			<label><input type="radio" value="2" name=a>中等程度</label>
+			<label><input type="radio" value="3" name=a>厲害</label>
+			<label><input type="radio" value="4" name=a>非常厲害</label>
+			</td><br> 
+			</tr>
+			
+			<tr>
+			<td>2.感覺緊張不安<br></td>
+			<td><label><input type="radio" value="0" name="b">完全沒有</label>
+			<label><input type="radio" value="1" name="b">輕微</label>
+			<label><input type="radio" value="2" name=b>中等程度</label>
+			<label><input type="radio" value="3" name=b>厲害</label>
+			<label><input type="radio" value="4" name=b>非常厲害</label></td><br> 
+			</tr>
+			
+			<tr>
+			<td>3.覺得容易苦惱或動怒<br></td>
+			<td><label><input type="radio" value="0" name="c">完全沒有</label>
+			<label><input type="radio" value="1" name="c">輕微</label>
+			<label><input type="radio" value="2" name=c>中等程度</label>
+			<label><input type="radio" value="3" name=c>厲害</label>
+			<label><input type="radio" value="4" name=c>非常厲害</label></td><br>
+			</tr>
+			
+			<tr>
+			<td>4.感覺憂鬱、心情低落<br></td>
+			<td><label><input type="radio" value="0" name="d">完全沒有</label>
+			<label><input type="radio" value="1" name="d">輕微</label>
+			<label><input type="radio" value="2" name="d">中等程度</label>
+			<label><input type="radio" value="3" name="d">厲害</label>
+			<label><input type="radio" value="4" name=d>非常厲害</label></td><br>
+			</tr>
+			
+			<tr>
+			<td>5.覺得比不上別人<br></td>
+			<td><label><input type="radio" value="0" name="e">完全沒有</label>
+			<label><input type="radio" value="1" name="e">輕微</label>
+			<label><input type="radio" value="2" name="e">中等程度</label>
+			<label><input type="radio" value="3" name="e">厲害</label>
+			<label><input type="radio" value="4" name=e>非常厲害</label></td><br> 
+			<tr>
+			
+			<tr>
+			<td>6.有自殺的想法<br></td>
+			<td><label><input type="radio" value="0" name="f">完全沒有</label>
+			<label><input type="radio" value="1" name="f">輕微</label>
+			<label><input type="radio" value="2" name="f">中等程度</label>
+			<label><input type="radio" value="3" name="f">厲害</label>
+			<label><input type="radio" value="4" name=f>非常厲害</label><br></td> 
+			</tr>
+			
+			<thead><tr><th colspan="2">得分:<input type="text" id="total"></th></tr></thead>
+			<tbody>
+		</table>
+		<div style="position:relative;top:-110px;">
+		<h5><center>
+			得分0~5分	身心適應狀況良好。<br>
+			得分6~9分	輕度情緒困擾，建議尋求紓壓管道或接受心理專業諮詢。<br>
+			得分10~14分	中度情緒困擾，建議諮詢精神醫師接受進一步評估。<br>
+			得分＞15分	重度情緒困擾，建議諮詢精神科醫師托受進一步評估。<br>
+			若您第六題評分為2分（中等程度）以上，宜考慮尋求心理諮詢或諮詢專業醫師。<br></center>
+		</h5>
+		</div>
+		</div>
+
+			
+
+		<script>
+
+			// 選擇所有的主餐
+const a = document.querySelectorAll('input[name="a"]');
+// 選擇所有的配餐
+const b = document.querySelectorAll('input[name="b"]');
+// 選擇所有的飲品
+const c = document.querySelectorAll('input[name="c"]');
+
+// 為被選擇到的元素都綁定事件
+const d = document.querySelectorAll('input[name="d"]');
+const e = document.querySelectorAll('input[name="e"]');
+const f = document.querySelectorAll('input[name="f"]');
+
+a.forEach(function(a) {
+  a.addEventListener("change", refreshTotal);
+});
+b.forEach(function(b) {
+  b.addEventListener("change", refreshTotal);
+});
+c.forEach(function(c) {
+  c.addEventListener("change", refreshTotal);
+});
+d.forEach(function(d) {
+  d.addEventListener("change", refreshTotal);
+});
+e.forEach(function(e) {
+  e.addEventListener("change", refreshTotal);
+});
+f.forEach(function(f) {
+  f.addEventListener("change", refreshTotal);
+});
+
+function refreshTotal(ee) {
+  let total = 0;
+  // 找出 mainMeals 中有被勾選的項目
+  a.forEach(function(a) {
+    if (a.checked) {
+      total += Number(a.value);
+    }
+  });
+  b.forEach(function(b) {
+    if (b.checked) {
+      total += Number(b.value);
+    }
+  });
+
+  c.forEach(function(c) {
+    if (c.checked) {
+      total += Number(c.value);
+    }
+  });
+  d.forEach(function(d) {
+    if (d.checked) {
+      total += Number(d.value);
+    }
+  });
+  e.forEach(function(e) {
+    if (e.checked) {
+      total += Number(e.value);
+    }
+  });
+  f.forEach(function(f) {
+    if (f.checked) {
+      total += Number(f.value);
+    }
+  });
+  displayTotal(total);
+}
+
+// 用來將算好的 total 顯示在 input 欄位中
+const totalInput = document.querySelector("#total");
+function displayTotal(total) {
+  totalInput.value = total;
+}
+
+// 清除
+// 選擇所有 input 元素
+const inputAll = document.querySelectorAll("input");
+function resetAll() {
+  inputAll.checked = false;
+}
+
+
+			
+		</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</body>
+</html>
