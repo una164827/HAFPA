@@ -1,0 +1,685 @@
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+<script type="text/javascript" src="jQuery C:\xampp\htdocs\reg0317\jquery-3.6.0.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<title>大安區健康醫院</title>
+<style>
+/*the menu nav bar start ------->*/
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300&display=swap');
+
+body {
+    background-image:url('../image/bg3.jpg');
+    margin: 0;
+
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+ #map { width:70%; height: 80%; top:50px; margin:0px auto;}
+
+.menuwrap {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 5;
+    font-family:Copperplate;
+}
+
+.bg-img {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url('https://weiupward.com/wp-content/uploads/2019/11/FullSizeRender.jpg');
+    width: 100%;
+    height: 100vh;
+}
+
+.menu {
+    width: 100%;
+    display: flex;
+    background: transparent;
+}
+
+.menu.dark {
+    background: #D0D0D0;
+    color: #ffffff;
+}
+
+.menu.dark li a, .menu.dark .menu-logo a {
+    text-decoration: none;
+    color: white;
+}
+
+.menu li {
+    float: left;
+    list-style: none;
+    margin: 0px 50px 0px 0px;
+    font-size: 16px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #272626;
+    transition: color linear 0.15s;
+    cursor: pointer;
+}
+
+.menu .menu-logo {
+    margin: auto;
+    margin-left: 0px;
+    padding: 10px 10px 10px 20px;
+}
+
+.menu .menu-logo a {
+    color: #6C6C6C;
+}
+
+.menu a:hover, .menu .current-active a, .menu.dark .current-active a {
+    text-decoration: none;
+    color: #FFFF37; //導覽列點選後的顏色
+}
+
+.toggle-nav {
+    display: none;
+}
+
+.mycontent {
+    height: 1000px;
+}
+
+#middle {
+	position:absolute; width:70%; height:80vh;
+	top:0; bottom:0; left:0; right:0; margin:auto;
+	background-color: #FFFFFF;z-index: 1;opacity: 0.8;
+	border-radius: 30px;
+}
+#middle2 {
+	position:absolute; width:50%; height:85vh;
+	top:200%; bottom:0; left:0; right:0; margin:auto;
+	//background-color: #FFFFFF;z-index: 1; //opacity: 0.7;
+	//border-radius: 30px;
+}
+
+.middle{
+    	left: 100%; top: 50%;
+}
+
+#wordblock1 {
+	z-index: 3; /*決定元素重疊的順序*/
+	position:absolute;
+	width:600px;
+	height:100px;
+	top:5%;
+	left:10%;
+	font-size:90px;
+	//background-color:#ADADAD;
+	font-family:'Open Sans Condensed', sans-serif;
+	font-style:oblique;
+	color:#6C6C6C;
+			
+}
+
+
+@media screen and (max-width: 767px) {
+    .menu {
+        position: relative;
+        display: inline-block;
+    }
+    .toggle-nav {
+        position: absolute;
+        left: 4%;
+        color: #272626;
+        text-decoration: none;
+        line-height: 40px;
+        z-index: 1;
+    }
+    .menu.dark .toggle-nav {
+        color: white;
+    }
+    .menu .menu-logo {
+        position: relative;
+        text-align: center;
+    }
+    .menu ul {
+        display: none;
+    }
+    .menu ul.active {
+        display: block;
+        left: 0px;
+        padding: 10px 25px;
+        margin-top: -5px;
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15);
+        border-radius: 0px 0px 3px 3px;
+        background: #272626;
+    }
+    .menu li {
+        margin: 10px 0px 10px 0px;
+        float: none;
+        display: block;
+    }
+    .menu a {
+        display: block;
+    }
+}
+
+	ul.drop-down-menu {
+	  display: inline-block;
+	  top:10px;
+	  font-family:'Noto Serif TC', serif;  //中文字體
+	}
+
+	ul.drop-down-menu li {
+	  position: relative;
+	  white-space: nowrap;
+	  //border-right: #ccc 1px solid;
+	}
+
+	ul.drop-down-menu>li:last-child {
+	  border-right: none;
+	}
+	
+	ul.drop-down-menu>li {
+	  float: left;
+	  /* 只有第一層是靠左對齊*/
+	}
+
+	ul.drop-down-menu a {
+	  //background-color: #D0D0D0;
+	  //color: #333;
+	  display: block;
+	  //padding: 0 30px;
+	  text-decoration: none;
+	  line-height: 40px;
+	}
+
+	ul.drop-down-menu a:hover {
+	  /* 滑鼠滑入按鈕變色*/
+	  //background-color: #D0D0D0;
+	  color: #FFFF37;
+	}
+
+	ul.drop-down-menu li:hover>a {
+	  /* 滑鼠移入次選單上層按鈕保持變色*/
+	  //background-color: #ADADAD;
+	  color: #FFFF37;
+	  
+	}
+
+	ul.drop-down-menu ul {
+	  //border: #ccc 1px solid;
+	  position: absolute;
+	  z-index: 99;
+	  left: -1px;
+	  top: 100%;
+	  min-width: 180px;
+	  text-shadow: 0 0 0.2em #BEBEBE, 0 0 0.2em #BEBEBE;
+	}
+
+	ul.drop-down-menu ul li {
+	  //border-bottom: #ccc 1px solid;
+	}
+	
+	ul.drop-down-menu ul li:last-child {
+	  border-bottom: none;
+	}
+
+	ul.drop-down-menu ul ul {
+	  /*第三層以後的選單出現位置與第二層不同*/
+	  z-index: 999;
+	  top: 10px;
+	  left: 90%;
+	}
+
+	ul.drop-down-menu ul {
+	  /*隱藏次選單*/
+	  display: none;
+	}
+
+	ul.drop-down-menu li:hover>ul {
+	  /* 滑鼠滑入展開次選單*/
+	  display: block;
+	}
+
+
+@media(min-width:767px) {
+    .navbar {
+        padding: 20px 0;
+        -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        transition: background .5s ease-in-out,padding .5s ease-in-out;
+    }
+
+    .top-nav-collapse {
+        padding: 0;
+    }
+}
+
+.intro-section {
+    height: 100%;
+    padding-top: 150px;
+    text-align: center;
+    //background: #fff;
+}
+.tdee-section {
+    height: 100%;
+    padding-top: 150px;
+    text-align: center;
+    //background: #fff;
+}
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+
+	.input-container {
+		width: 200px;
+		position: relative;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: reverse;
+		-ms-flex-flow: column-reverse;
+		flex-flow: column-reverse;
+		-webkit-box-align: start;
+		-ms-flex-align: start;
+		algn-items: flex-start;
+		margin: 10px auto;
+	}
+	.input-container input {
+		-webkit-box-ordinal-group: 11;
+		order: 10;
+		-ms-flex-order: 10;
+		outline: none;
+		border: none;
+		width: 100%;
+		padding: 10px 0;
+		font-size: 18px;
+		border-bottom: 1px solid #d5d5d5;
+		text-indent: 10px;
+
+	}
+
+		/*.input-container input::-moz-placehoder {
+			opacity: 0;
+		}
+		
+		.input-container input::-webkit-input-placehoder {
+			opacity: 0;
+		}
+
+		.input-container input::-ms-input-placehoder {
+			opacity: 0;
+		}
+
+		
+
+		.input-container input, .input-container label {
+			transition: all 0.3s;
+		}
+		
+		.input-container label {
+			-webkit-box-ordinal-group: 101;
+			-ms-flex-order: 100;
+			order: 100;
+			color: #3f4f5b;
+			-webkit-transform-origin: left bottom;
+			transform-origin: left bottom;
+			-webkit-transform: translate(10px, 40px);
+			transform: translate(0px, 40px);
+		}*/
+
+	.input-container .bottom-line {  //最下面的橫線一開始長度為0
+		order: 2;
+		width: 0;
+		height: 2px;
+		background: #658db5;
+		transition: all 0.3s;
+
+	}
+
+	.input-container input: focus {  //橫線逐漸延長至最大寬度
+		border-bottom-color: #fff;
+	}
+	.input-container input:focus ~ div,
+	.input-container input:not(:placeholder-shown) ~ div {
+		width: 100%;
+	}
+
+	.input-container input:focus + label,
+	.input-container input:not(:plaehoder-shown) + label {
+		color: #52616c;
+		-webkit-transform: translate(10px) scale(0.9);
+		transform: translate(10px) scale(0.9);
+	}
+
+button{
+  display: block;
+  margin: 20px;
+  padding: 10px 30px;
+  font-size: 20px;
+  color: white;
+  background-color: #ADADAD;
+  border: none;
+  border-radius: 5px;
+  width: 200px;
+  
+}
+button:hover{
+  cursor: pointer;
+  transition: .5s;
+  box-shadow: 0 0 5px 1px #fff;
+}
+
+table, tr, td {
+  border-style:none;
+}
+
+
+</style>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+	<script src="js/jquery-3.5.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+ <div class="menuwrap">
+        <nav class="menu">
+            <a id="menubtn" class="toggle-nav" href='javascript:void(0);'>&#9776;</a>
+            <div class="menu-logo"><a>HAFPA</a></div>
+            <ul id="menuUl" class="drop-down-menu">
+                <li><a href="../home.html">首頁</a></li>
+		<li><a href="#">身體健康評估</a>
+			<ul>
+				<li>
+					<a href="../health.html">bmi</a>
+				</li>
+				<li>
+					<a href="../yaotungwei.html">腰臀圍比計算</a>
+				</li>
+				<li>
+					<a href="../twelve.html" >12項健康指數</a>
+				</li>
+				<li>
+					<a href="../water.html">人體需水量</a>
+				</li>
+				<li>
+					<a href="../cal.html" >每日熱量</a>
+				</li>
+				<li>
+					<a href="../nkd.html" >尼古丁成癮度量表</a>
+				</li>
+				<li>
+					<a href="../hh.html">簡式健康表</a>
+				</li>
+			</ul>
+		</li>
+		
+                <li><a href="../quiz.html">文章測驗</a></li>
+                <li><a href="../diary.html">日記</a></li>
+		<li>
+			<a href="#">小遊戲</a>
+			<ul>
+				<li>
+					<a href="../game/word/bighit.html">成語遊戲</a>
+				</li>
+				<li>
+					<a href="">猜拳遊戲</a>
+				</li>
+				<li>
+					<a href="../game/turncard/turncard.html" >翻牌遊戲</a>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="#">相關服務據點位置</a>
+			<ul>
+				<li class="current-active">
+					<a href="../hospital.html">台北市健康醫院</a>
+				</li>
+				<li>
+					<a href="../servicecenter.html">台北市老人服務中心</a>
+				</li>
+			</ul>
+		</li>
+
+            </ul>
+        </nav>
+    </div>
+
+
+
+    <div class="bg-img">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+
+
+    
+	<div id="wordblock1">Hospital</div>
+
+	
+	<!-- Intro Section -->
+	<section id="intro" class="intro-section">
+
+		<div class="container" id="middle">
+			
+			<label for="area">選擇欲顯示的健康醫院區域:</label>
+			
+    			   <select onchange="location.href=this.options[this.selectedIndex].value">
+      				<option value="../hospital.html">台北市</option>
+      				<option value="./zhongzhen.html">中正區</option>
+      				<option value="./nangang.html">南港區</option>
+      				<option value="./daan.html" selected>大安區</option>
+      				<option value="./datong.html">大同區</option>
+      				<option value="./shiling.html">士林區</option>
+      				<option value="./shingyi.html">信義區</option>
+      				<option value="./zhongshan.html">中山區</option>
+      				<option value="./wanhua.html">萬華區</option>
+      				<option value="./songshan.html">松山區</option>
+      				<option value="./neihu.html">內湖區</option>
+      				<option value="./beito.html">北投區</option>
+      				<option value="./wungshan.html">文山區</option>
+    			   </select>
+				
+			<div id="map"></div>	
+			
+		</div>
+		<span style="font-size:18px; z-index: 1;">◎點選地標可以了解醫院詳細資料喔！</span>
+	</section>
+	
+<script>
+
+
+document.getElementById('menubtn').addEventListener('click', function (e) {
+        var currentscrollTop = window.scrollY
+        $(this).toggleClass('active');
+        $('#menuUl').toggleClass('active');
+        // debugger
+        if ($('#menuUl').hasClass('active') && !$('.menu').hasClass('dark')) {
+            $('.menu').addClass('dark')
+        } else if (currentscrollTop < 80) {
+            $('.menu').removeClass('dark')
+        }
+
+    })
+
+    $('#menuUl li').click(function () {
+        $(this).parent().find('li').each(function () {
+            if ($(this).hasClass('current-active')) {
+                $(this).toggleClass('current-active');
+            }
+        })
+        $(this).toggleClass('current-active');
+    })
+
+$(window).scroll(function () {
+    var currentscrollTop = $(window).scrollTop();
+    if (currentscrollTop >= 80) {
+        if (!$('.menu').hasClass('dark')) {
+            $('.menu').addClass('dark')
+        }
+    } else {
+        if (!$('.toggle-nav').hasClass('active')) {
+            $('.menu').removeClass('dark')
+        }
+    }
+})
+//jQuery to collapse the navbar on scroll
+var header_height  = $('.navbar').height(),
+    intro_height    = $('.intro-section').height(),
+    offset_val = intro_height + header_height;
+$(window).scroll(function() {
+  var scroll_top = $(window).scrollTop();
+    if (scroll_top >= offset_val) {
+        $(".navbar-fixed-top").addClass("top-nav-collapse");
+            $(".navbar-fixed-top").removeClass("navbar-transparent");
+    } else {
+        $(".navbar-fixed-top").removeClass("top-nav-collapse");
+      $(".navbar-fixed-top").addClass("navbar-transparent");
+    }
+});
+
+//jQuery for page scrolling feature - requires jQuery Easing plugin
+$(function() {
+    $('a.page-scroll').bind('click', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top
+        }, 1500, 'easeInOutExpo');
+        event.preventDefault();
+    });
+});
+
+// //jQuery to collapse the navbar on scroll
+// $(window).scroll(function() {
+//     if ($(".navbar").offset().top > 100) {
+//         $(".navbar-fixed-top").addClass("top-nav-collapse");
+//             $(".navbar-fixed-top").removeClass("navbar-transparent");
+//     } else {
+//         $(".navbar-fixed-top").removeClass("top-nav-collapse");
+//       $(".navbar-fixed-top").addClass("navbar-transparent");
+//     }
+// });
+
+function initMap() {
+  var markers = [];
+  var infoWindows = [];
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 25.0412833, lng: 121.552025}, //明曜百貨公司
+    zoom: 14 // 1-20，數字愈大，地圖愈細：1是世界地圖，20就會到街道
+  });
+  var geocoder = new google.maps.Geocoder();
+  console.log(geocoder);
+  
+  //info windows
+  var info_config = [
+    '<h2>臺北市立聯合醫院仁愛院區</h2>'+
+    '<span>台北市大安區仁愛路四段10號</span><br/>'+
+    '<span>0227093600</span><br/>'
+    ,
+    '<h2>中山醫院</h2>'+
+    '<span>台北市大安區仁愛路四段112巷11號</span><br/>'+
+    '<span>02 227081166</span><br/>'
+    ,
+    '<h2>國泰綜合醫院</h2>'+
+    '<span>台北市大安區仁愛路四段280號</span><br/>'+
+    '<span>02 227082121</span><br/>'
+    ,
+    '<h2>中心診所醫療財團法人中心綜合醫院</h2>'+
+    '<span>台北市大安區忠孝東路四段77號</span><br/>'+
+    '<span>02 227510221</span><br/>'
+    ,
+    '<h2>宏恩醫療財團法人宏恩綜合醫院</h2>'+
+    '<span>台北市大安區仁愛路四段61號</span><br/>'+
+    '<span>02 227713161</span><br/>'
+  ];
+
+  //建立地圖 marker 的集合
+  var marker_config = [{
+    position: {lat: 25.0372057, lng: 121.5452242},
+    map: map,
+    title:'臺北市立聯合醫院仁愛院區'
+  }
+  ,{
+    position: {lat: 25.0366386, lng: 121.5499092},
+    map: map,
+    title:'中山醫院'
+  }
+  ,{
+    position: {lat: 25.0368857, lng: 121.5537445},
+    map: map,
+    title:'國泰綜合醫院'
+  }
+  ,{
+    position: {lat: 25.0419142, lng: 121.5474057},
+    map: map,
+    title:'中心診所醫療財團法人中心綜合醫院'
+  }
+  ,{
+    position: {lat: 25.0382016, lng: 121.5466815},
+    map: map,
+    title:'宏恩醫療財團法人宏恩綜合醫院'
+  }
+
+  ];
+  
+  //設定 Info window 內容
+  
+  info_config.forEach(function(e,i){
+    infoWindows[i] = new google.maps.InfoWindow({
+      content: e
+    });
+  });
+  
+  
+  //標出 marker
+  marker_config.forEach(function(e,i){
+    markers[i] = new google.maps.Marker(e);
+    markers[i].setMap(map);
+    markers[i].addListener('click', function() {
+      infoWindows[i].open(map, markers[i]);
+    });
+  });
+  
+  
+  
+  function _geocoder(address){
+    geocoder.geocode({
+      address: address
+    }, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        LatLng = results[0].geometry.location;
+        return results;
+      }
+    });
+  }
+  
+  //console.log(_geocoder('高雄市'));
+
+}
+
+</script>
+<script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoZp1Q4ZyuyxljNPAZvoVBU-_5bNoALn4&callback=initMap">
+</script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+[0507/183632.211:ERROR:process_info.cc(375)] NtQuerySystemInformation SystemExtendedHandleInformation: 指定的資訊記錄長度與請求的資訊等級長度不符合。 (0xc0000004)
+[0507/185452.340:ERROR:process_info.cc(375)] NtQuerySystemInformation SystemExtendedHandleInformation: 指定的資訊記錄長度與請求的資訊等級長度不符合。 (0xc0000004)
+[0507/202122.469:ERROR:process_info.cc(375)] NtQuerySystemInformation SystemExtendedHandleInformation: 指定的資訊記錄長度與請求的資訊等級長度不符合。 (0xc0000004)

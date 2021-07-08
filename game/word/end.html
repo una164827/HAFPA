@@ -1,0 +1,43 @@
+​<!DOCTYPE html>
+<html>
+
+
+
+  
+
+<head>
+
+<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<style type="text/css">
+
+</style>
+</head>
+<body>
+
+<body bgcolor='#CCDDFF'>
+<div id="content" style="margin-top:130px;margin-left:400px;background-color:#FFCCCC;height:300px;width:400px;float:left;">
+<div  style='margin-top:50px;margin-left:155px;font-size:30px;font-family:Microsoft JhengHei'>時間到</div>
+<br>
+<input type='text' style='margin-left:150px;font-size:65px;width:100px;height:100px;padding:30px'id='abc' readonly='readonly' >
+<br>
+<br><button style='margin-left:164px;font-size:28px ;font-weight:bold;background-color:#DEB887;color:#FFFFFF;font-family:Microsoft JhengHei'onclick=window.location.replace("bighit.html");>重來</button></div>
+<script type="text/javascript">
+function oneValues(){
+var result;
+var url=window.location.search; //获取url中"?"符后的字串  
+if(url.indexOf("?")!=-1){
+result = url.substr(url.indexOf("=")+1);
+}
+
+return result;
+}
+
+document.getElementById('abc').value= oneValues();
+//document.getElementById('abc').value=kkk;
+</script>
+
+
+</body>
+</html>

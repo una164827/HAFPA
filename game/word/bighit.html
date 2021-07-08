@@ -1,0 +1,235 @@
+<html>
+	<head>
+		<title>BTS | Big Hit Entertainment</title>
+	</head>
+	 <div id='div1' style='margin-left:550px;margin-top:10px;font-size:30px;font-family:Microsoft JhengHei'>
+        </div>
+	<body>
+</div>
+	
+		<script type="text/javascript">
+		
+		
+		var k =0;
+		var k2=0;
+		//var spt4 = [];
+		var a=0,b=0,c=0,d=0;
+		var a1=0,b1=0,c1=0,d1=0;
+		var g=0;
+		var test = 0;
+		
+		var words =["愛屋及烏", "拔刀相助", "稗官野史", "吃喝玩樂", "操之過急",
+			 "安家立業", "白頭偕老", "本末倒置", "承上起下", "晨昏定省",
+			 "黯然失色", "傲慢無禮", "背道而馳", "滄海一粟", "車載斗量",
+			 "按部就班", "八面玲瓏", "乘風興浪", "暢所欲言", "瞠目結舌",
+			 "暗箭傷人", "百折不撓", "發憤圖強", "沉魚落雁", "出神入化",
+			 "如虎添翼", "鳩占鵲巢", "剛愎自用", "藕斷絲連", "登峰造極",
+			 "怒髮衝冠", "汗牛充棟", "孤陋寡聞", "夢寐以求", "隔靴搔癢",
+			 "情有獨鍾", "耳熟能詳", "曲突徙薪", "披星戴月", "逆來順受",
+			 "群賢畢至", "壽比南山", "淋漓盡致", "焚膏繼晷", "亡羊補牢",
+			 "案牘勞形", "博古通今", "趨炎附勢", "變幻莫測", "高朋滿座"];
+
+var time = 40;
+//顯示倒數秒收
+function showTime()
+{
+	
+	if(time!=0)
+	time--;
+  
+    document.getElementById('div1').innerHTML= time+"秒";
+    if(time==0){
+		var getval =kkk;
+		window.location.href="end.html?valus="+getval; 
+	}
+	setTimeout("showTime()",1000);
+   
+}
+
+		showTime();
+		Innitiall();
+	function Innitiall(){	
+
+		arr=[];
+		spt4=[];
+
+		for(i=1;i<6;i++){
+			arr[i] = Math.floor(Math.random() * 50);
+			if(i>0){
+				for(j=0;j<i;j++){
+					if(arr[j]==arr[i]){
+						i--;
+						break;
+					}
+				}				
+			}	
+		} //50個成語隨機取五個
+		for(i=1;i<6;i++){
+			k = words[arr[i]].split("");
+			if(i<5){
+				for(j=0;j<3;j++){				
+					spt4.push(k[j]);
+					console.log(spt4);
+				}				
+			}	
+			else if(i=5){
+				for(t=0;t<4;t++){
+					spt4.push(k[t]);
+				}
+				a=spt4[12];
+				b=spt4[13];
+				c=spt4[14];
+				d=spt4[15];
+			}
+		}	
+		console.log(spt4); //前四個成語抽掉最後一個字第五個成語保留，共16個字
+		Initial(spt4);
+	}
+	
+	var mi=0;
+	var jh=0;
+	function Initial(spt4){
+		for(jh=0;jh<16;jh++){
+			mi = Math.floor(Math.random() * 16);
+			var temp = spt4[jh];
+			spt4[jh] = spt4[mi];
+		spt4[mi] = temp;
+		}
+		
+	Test(spt4);
+	
+	}
+	
+
+	var word=0;
+	var i=0;
+	
+
+function Test(spt4){
+	document.write("<div id =div1 style='margin-left:550px;margin-top:10px;font-size:30px;font-family:Microsoft JhengHei'></div>");
+	if(test<2){
+			document.write("<input type='text' id='an1' readonly='readonly' style='margin-left:400px;margin-top:30px;font-size:45px;padding:15px;width:85px;height:85px;font-family:Microsoft JhengHei' ; ><input type='text' id='an2' readonly='readonly' style='font-size:45px;padding:15px;width:85px;height:85px;font-family:Microsoft JhengHei'><input type='text' id='an3' readonly='readonly' style='font-size:45px;padding:15px;width:85px;height:85px;font-family:Microsoft JhengHei'><input type='text' id='an4'readonly='readonly' style='font-size:45px;padding:15px;width:85px;height:85px;font-family:Microsoft JhengHei'>\ \<button style='width:58px;height:43px;font-family:Microsoft JhengHei;font-size:18px;background-color:#99BBFF;color:#FFFFFF;border: 1px solid #9999FF;font-weight:bold;'onclick='End(a,b,c,d)'>確認</button>");
+			document.write("<br><br><body background='rabbit3.png'>");
+		
+	document.write("<table style='margin-left:400px;border: 1px solid #CD853F;background-color:#FFDEAD;padding-left:5px;padding-right:5px;padding-top:5px;padding-bottom:5px'><td style='padding-left:0px;padding-right:0px;width:80px;height:80px;border: 1px solid #D2691E;'>"+"<button style='font-family:Microsoft JhengHei;width:80px;height:80px;font-size:42px;color:#D87093;font-weight:bold;background-color:#FFF8DC;margin-left:0px;margin-top:0px' id='btn0' ; onclick='Clickword(0)'>"+spt4[0]+"</button>"
++
+"<td style='padding-left:0px;padding-right:0px;width:80px;height:80px;border: 1px solid #D2691E;'>"+"<button style='width:80px;height:80px;font-size:42px;color:#D87093;font-weight:bold;font-family:Microsoft JhengHei;background-color:#FFF8DC;margin-left:0px;margin-top:0px' id='btn1' ; onclick='Clickword(1)'>"+spt4[1]+"</button>"
++
+"<td style='padding-left:0px;padding-right:0px;width:80px;height:80px;border: 1px solid #D2691E;'>"+"<button style='width:80px;height:80px;font-size:42px;color:#D87093;font-weight:bold;font-family:Microsoft JhengHei;background-color:#FFF8DC;' id='btn2' ; onclick='Clickword(2)'>"+spt4[2]+"</button>"
++
+"<td style='padding-left:0px;padding-right:0px;width:80px;height:80px;border: 1px solid #D2691E;'>"+"<button style='width:80px;height:80px;font-size:42px;color:#D87093;font-weight:bold;background-color:#FFF8DC;font-family:Microsoft JhengHei;' id='btn3' ; onclick='Clickword(3)'>"+spt4[3]+"</button>"
++
+"<tr>"
++
+"<td style='padding-left:0px;padding-right:0px;width:80px;height:80px;border: 1px solid #D2691E;'>"+"<button style='width:80px;height:80px;font-size:42px;color:#D87093;font-weight:bold;background-color:#FFF8DC;font-family:Microsoft JhengHei;' id='btn4' ; onclick='Clickword(4)'>"+spt4[4]+"</button>"
++
+"<td style='padding-left:0px;padding-right:0px;width:80px;height:80px;border: 1px solid #D2691E;'>"+"<button style='width:80px;height:80px;font-size:42px;color:#D87093;font-weight:bold;background-color:#FFF8DC;font-family:Microsoft JhengHei;' id='btn5' ; onclick='Clickword(5)'>"+spt4[5]+"</button>"
++
+"<td style='padding-left:0px;padding-right:0px;width:80px;height:80px;border: 1px solid #D2691E;'>"+"<button style='width:80px;height:80px;font-size:42px;color:#D87093;font-weight:bold;background-color:#FFF8DC; font-family:Microsoft JhengHei;' id='btn6' ; onclick='Clickword(6)'>"+spt4[6]+"</button>"
++
+"<td style='padding-left:0px;padding-right:0px;width:80px;height:80px;border: 1px solid #D2691E;'>"+"<button style='width:80px;height:80px;font-size:42px;color:#D87093;font-weight:bold;background-color:#FFF8DC;font-family:Microsoft JhengHei;' id='btn7' ; onclick='Clickword(7)'>"+spt4[7]+"</button>"
++
+"<tr>"
++
+"<td style='padding-left:0px;padding-right:0px;width:80px;height:80px;border: 1px solid #D2691E;'>"+"<button style='width:80px;height:80px;font-size:42px;color:#D87093;font-weight:bold;background-color:#FFF8DC;font-family:Microsoft JhengHei;' id='btn8' ; onclick='Clickword(8)'>"+spt4[8]+"</button>"
++
+"<td style='padding-left:0px;padding-right:0px;width:80px;height:80px;border: 1px solid #D2691E;'>"+"<button style='width:80px;height:80px;font-size:42px;color:#D87093;font-weight:bold;background-color:#FFF8DC;font-family:Microsoft JhengHei;' id='btn9' ; onclick='Clickword(9)'>"+spt4[9]+"</button>"
++
+"<td style='padding-left:0px;padding-right:0px;width:80px;height:80px;border: 1px solid #D2691E;'>"+"<button style='width:80px;height:80px;font-size:42px;color:#D87093;font-weight:bold;background-color:#FFF8DC;font-family:Microsoft JhengHei;' id='btn10' ; onclick='Clickword(10)'>"+spt4[10]+"</button>"
++
+"<td style='padding-left:0px;padding-right:0px;width:80px;height:80px;border: 1px solid #D2691E;'>"+"<button style='width:80px;height:80px;font-size:42px;color:#D87093;font-weight:bold;background-color:#FFF8DC;font-family:Microsoft JhengHei;' id='btn11' ; onclick='Clickword(11)'>"+spt4[11]+"</button>"
++
+"<tr>"
++
+"<td style='padding-left:0px;padding-right:0px;width:80px;height:80px;border: 1px solid #D2691E;'>"+"<button style='width:80px;height:80px;font-size:42px;color:#D87093;font-weight:bold;background-color:#FFF8DC;font-family:Microsoft JhengHei;' id='btn12' ; onclick='Clickword(12)'>"+spt4[12]+"</button>"
++
+"<td style='padding-left:0px;padding-right:0px;width:80px;height:80px;border: 1px solid #D2691E;'>"+"<button style='width:80px;height:80px;font-size:42px;color:#D87093;font-weight:bold;background-color:#FFF8DC;font-family:Microsoft JhengHei;' id='btn13' ; onclick='Clickword(13)'>"+spt4[13]+"</button>"
++
+"<td style='padding-left:0px;padding-right:0px;width:80px;height:80px;border: 1px solid #D2691E;'>"+"<button style='width:80px;height:80px;font-size:42px;color:#D87093;font-weight:bold;background-color:#FFF8DC;font-family:Microsoft JhengHei;' id='btn14' ; onclick='Clickword(14)'>"+spt4[14]+"</button>"
++
+"<td style='padding-left:0px;padding-right:0px;width:80px;height:80px;border: 1px solid #D2691E;'>"+"<button style='width:80px;height:80px;font-size:42px;color:#D87093;font-weight:bold;background-color:#FFF8DC;font-family:Microsoft JhengHei;' id='btn15' ; onclick='Clickword(15)'>"+spt4[15]+"</button>"
++
+"</table>"
+	);
+	//document.write("<input type='text' id='ann' readonly='readonly' style='margin-left:800px;font-size:40px;padding:5px;width:60px;font-family:Microsoft JhengHei' ; >");
+
+	//aaa();
+	test++;
+	}
+	else if(test>1){
+		document.write("<div id =div1></div>");
+		document.getElementById("btn0").innerHTML=spt4[0];
+		document.getElementById("btn1").innerHTML=spt4[1];
+		document.getElementById("btn2").innerHTML=spt4[2];
+		document.getElementById("btn3").innerHTML=spt4[3];
+		document.getElementById("btn4").innerHTML=spt4[4];
+		document.getElementById("btn5").innerHTML=spt4[5];
+		document.getElementById("btn6").innerHTML=spt4[6];
+		document.getElementById("btn7").innerHTML=spt4[7];
+		document.getElementById("btn8").innerHTML=spt4[8];
+		document.getElementById("btn9").innerHTML=spt4[9];
+		document.getElementById("btn10").innerHTML=spt4[10];
+		document.getElementById("btn11").innerHTML=spt4[11];
+		document.getElementById("btn12").innerHTML=spt4[12];
+		document.getElementById("btn13").innerHTML=spt4[13];
+		document.getElementById("btn14").innerHTML=spt4[14];
+		document.getElementById("btn15").innerHTML=spt4[15];
+		//document.write("<div id =div2></div>");
+		}
+	}
+	
+	
+	var h=0;
+	function Clickword(i){
+		if(h%4==0){
+			document.getElementById('an1').value=spt4[i];
+		}
+		else if (h%4==1){
+			document.getElementById('an2').value=spt4[i];
+		}
+		else if (h%4==2){
+			document.getElementById('an3').value=spt4[i];
+		}	
+		else if(h%4==3){
+			document.getElementById('an4').value=spt4[i];
+		}
+		h++;		
+	}
+	
+	var kkk=0;
+	function End(a,b,c,d){
+		if(a==document.getElementById('an1').value && b==document.getElementById('an2').value && c==document.getElementById('an3').value && d==document.getElementById('an4').value){
+			alert('Yessssssssss');
+			document.getElementById('an1').value="";
+			 document.getElementById('an2').value="";
+			 document.getElementById('an3').value="";
+			 document.getElementById('an4').value="";
+			 h=0;
+			kkk++;
+			
+			Innitiall();
+
+			document.getElementById('ann').value=kkk;
+		}
+		else{
+			alert('wrong');
+			 document.getElementById('an1').value="";
+			 document.getElementById('an2').value="";
+			 document.getElementById('an3').value="";
+			 document.getElementById('an4').value="";
+			 h=0;
+		}
+	}
+	
+		</script>
+		<body bgcolor="#CCDDFF">
+
+
+
+
+
+
+
+	</body>
+</html>
+
