@@ -1,0 +1,618 @@
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+<script type="text/javascript" src="jQuery C:\xampp\htdocs\reg0317\jquery-3.6.0.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+<style>
+/*the menu nav bar start ------->*/
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300&display=swap');
+
+body {
+    margin: 0;
+    background-image:url('../image/bg3.jpg');
+}
+
+.menuwrap {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 5;
+    font-family:Copperplate;
+}
+
+.bg-img {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url('https://weiupward.com/wp-content/uploads/2019/11/FullSizeRender.jpg');
+    width: 100%;
+    height: 100vh;
+}
+
+.menu {
+    width: 100%;
+    display: flex;
+    background: transparent;
+}
+
+.menu.dark {
+    background: #D0D0D0;
+    color: #ffffff;
+}
+
+.menu.dark li a, .menu.dark .menu-logo a {
+    text-decoration: none;
+    color: white;
+}
+
+.menu li {
+    float: left;
+    list-style: none;
+    margin: 0px 50px 0px 0px;
+    font-size: 16px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #272626;
+    transition: color linear 0.15s;
+    cursor: pointer;
+}
+
+.menu .menu-logo {
+    margin: auto;
+    margin-left: 0px;
+    padding: 10px 10px 10px 20px;
+}
+
+.menu .menu-logo a {
+    color: #6C6C6C;
+}
+
+.menu a:hover, .menu .current-active a, .menu.dark .current-active a {
+    text-decoration: none;
+    color: #FFFF37; //導覽列點選後的顏色
+}
+
+.toggle-nav {
+    display: none;
+}
+
+.mycontent {
+    height: 1000px;
+}
+
+#middle {
+	position:absolute; width:70%; height:90vh;
+	top:0; bottom:0; left:0; right:0; margin:auto;
+	background-color: #FFFFFF;z-index: 1;opacity: 0.7;
+	border-radius: 30px;font-family:'Noto Serif TC', serif;
+	font-size: 17px;
+}
+#middle2 {
+	position:absolute; width:60%; height:85vh;
+	top:200%; bottom:0; left:0; right:0; margin:auto;
+	//background-color: #FFFFFF;z-index: 1; //opacity: 0.7;
+	//border-radius: 30px;font-family:'Noto Serif TC', serif;
+}
+
+.middle{
+    	left: 100%; top: 50%;
+}
+
+#wordblock1 {
+	z-index: 3; /*決定元素重疊的順序*/
+	position:absolute;
+	width:1300px;
+	height:100px;
+	top:5%;
+	left:10%;
+	font-size:40px;
+	//background-color:#ADADAD;
+	font-family:'Noto Serif TC', serif;  
+	font-style:oblique;
+	color:#6C6C6C;
+			
+}
+
+
+
+@media screen and (max-width: 767px) {
+    .menu {
+        position: relative;
+        display: inline-block;
+    }
+    .toggle-nav {
+        position: absolute;
+        left: 4%;
+        color: #272626;
+        text-decoration: none;
+        line-height: 40px;
+        z-index: 1;
+    }
+    .menu.dark .toggle-nav {
+        color: white;
+    }
+    .menu .menu-logo {
+        position: relative;
+        text-align: center;
+    }
+    .menu ul {
+        display: none;
+    }
+    .menu ul.active {
+        display: block;
+        left: 0px;
+        padding: 10px 25px;
+        margin-top: -5px;
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15);
+        border-radius: 0px 0px 3px 3px;
+        background: #272626;
+    }
+    .menu li {
+        margin: 10px 0px 10px 0px;
+        float: none;
+        display: block;
+    }
+    .menu a {
+        display: block;
+    }
+}
+
+	ul.drop-down-menu {
+	  display: inline-block;
+	  top:10px;
+	  font-family:'Noto Serif TC', serif;  //中文字體
+	}
+
+	ul.drop-down-menu li {
+	  position: relative;
+	  white-space: nowrap;
+	  //border-right: #ccc 1px solid;
+	}
+
+	ul.drop-down-menu>li:last-child {
+	  border-right: none;
+	}
+	
+	ul.drop-down-menu>li {
+	  float: left;
+	  /* 只有第一層是靠左對齊*/
+	}
+
+	ul.drop-down-menu a {
+	  //background-color: #D0D0D0;
+	  //color: #333;
+	  display: block;
+	  //padding: 0 30px;
+	  text-decoration: none;
+	  line-height: 40px;
+	}
+
+	ul.drop-down-menu a:hover {
+	  /* 滑鼠滑入按鈕變色*/
+	  //background-color: #D0D0D0;
+	  color: #FFFF37;
+	}
+
+	ul.drop-down-menu li:hover>a {
+	  /* 滑鼠移入次選單上層按鈕保持變色*/
+	  //background-color: #ADADAD;
+	  color: #FFFF37;
+	  
+	}
+
+	ul.drop-down-menu ul {
+	  //border: #ccc 1px solid;
+	  position: absolute;
+	  z-index: 99;
+	  left: -1px;
+	  top: 100%;
+	  min-width: 180px;
+	  text-shadow: 0 0 0.2em #BEBEBE, 0 0 0.2em #BEBEBE;
+	}
+
+	ul.drop-down-menu ul li {
+	  //border-bottom: #ccc 1px solid;
+	}
+	
+	ul.drop-down-menu ul li:last-child {
+	  border-bottom: none;
+	}
+
+	ul.drop-down-menu ul ul {
+	  /*第三層以後的選單出現位置與第二層不同*/
+	  z-index: 999;
+	  top: 10px;
+	  left: 90%;
+	}
+
+	ul.drop-down-menu ul {
+	  /*隱藏次選單*/
+	  display: none;
+	}
+
+	ul.drop-down-menu li:hover>ul {
+	  /* 滑鼠滑入展開次選單*/
+	  display: block;
+	}
+
+
+@media(min-width:767px) {
+    .navbar {
+        padding: 20px 0;
+        -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        transition: background .5s ease-in-out,padding .5s ease-in-out;
+    }
+
+    .top-nav-collapse {
+        padding: 0;
+    }
+}
+
+.intro-section {
+    height: 100%;
+    padding-top: 150px;
+    text-align: center;
+    //background: #fff;
+}
+.test-section {
+    height: 100%;
+    padding-top: 150px;
+    text-align: center;
+    //background: #fff;
+}
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+
+
+
+</style>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+	<script src="js/jquery-3.5.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+ <div class="menuwrap">
+        <nav class="menu">
+            <a id="menubtn" class="toggle-nav" href='javascript:void(0);'>&#9776;</a>
+            <div class="menu-logo"><a>HAFPA</a></div>
+            <ul id="menuUl" class="drop-down-menu">
+                <li><a href="../home.html">首頁</a></li>
+		<li><a href="#">身體健康評估</a>
+			<ul>
+				<li>
+					<a href="../health.html">bmi</a>
+				</li>
+				<li>
+					<a href="../yaotungwei.html">腰臀圍比計算</a>
+				</li>
+				<li>
+					<a href="../twelve.html" >12項健康指數</a>
+				</li>
+				<li>
+					<a href="../water.html">人體需水量</a>
+				</li>
+				<li>
+					<a href="../cal.html" >每日熱量</a>
+				</li>
+				<li>
+					<a href="../nkd.html" >尼古丁成癮度量表</a>
+				</li>
+				<li>
+					<a href="../hh.html">簡式健康表</a>
+				</li>
+			</ul>
+		</li>
+		
+                <li class="current-active"><a href="../quiz.html">文章測驗</a></li>
+                <li><a href="../diary.html">日記</a></li>
+		<li>
+			<a href="#">小遊戲</a>
+			<ul>
+				<li>
+					<a href="../game/word/bighit.html">成語遊戲</a>
+				</li>
+				<li>
+					<a href="">猜拳遊戲</a>
+				</li>
+				<li>
+					<a href="../game/turncard/turncard.html" >翻牌遊戲</a>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="#">相關服務據點位置</a>
+			<ul>
+				<li>
+					<a href="../hospital.html">台北市健康醫院</a>
+				</li>
+				<li>
+					<a href="../servicecenter.html">台北市老人服務中心</a>
+				</li>
+			</ul>
+		</li>
+
+            </ul>
+        </nav>
+    </div>
+    <div class="bg-img">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+
+
+    
+	<div id="wordblock1">沒睡好也會胖？專家：「把握剛入睡的這幾個小時！」</div>
+
+	
+	<!-- Intro Section -->
+	<section id="intro" class="intro-section">
+		<div class="container" id="middle">
+			<div class="row">
+				
+				<br><br>
+					基礎代謝率會隨著肌肉量增加，但其實睡眠品質的好壞與基礎代謝率的增減也有密切關係。這是因為中性脂肪會在睡眠中分解，肌肉也會在此時修復、促進新陳代謝的生長激素亦會持續分泌。假設睡眠品質不佳、生長激素分泌不足，新陳代謝的速度就會衰退，基礎代謝率隨之下降。<br>
+
+	要讓生長激素正常分泌，進入夢鄉的前三個小時非常重要，因為這三個小時會進入所謂的「非快速動眼期」（大腦活動下降的睡眠狀態），大部分的深層睡眠都出現在這個時候。<br>
+
+	一整天分泌的生長激素，約有七～八成會在此時分泌，新陳代謝的速度也會在這三小時之內達到高峰！所以為自己準備不會睡到一半醒來、能在前三小時內沉睡的環境是非常重要的。也有實驗指出，平均睡眠時間較短的人與一般人相較之下，食慾增強激素的飢餓素的分泌量較高，抑制食慾的瘦體素分泌較少。<br>
+
+	此外，睡眠不足會出現胰島素阻抗現象，無法穩定餐後血糖；睡眠品質不佳則會讓運動量減少，消耗熱量的速度也會下降。因此可知，睡眠不足絕對不利於減重，簡直可說是百害而無一利。最近也有資料指出蛋白質可提升睡眠品質。當手腳這類末梢的部分溫度上升與放射熱能，內部溫度也跟著下降時，我們自然而然會墜入夢鄉。令人驚訝的是，在就寢前攝取甘胺酸這種胺基酸（組成蛋白質的成分）可讓腳部的表面體溫上升，提升熱能放射效率，深部體溫下降的效果！<br><br>
+
+	而且甘胺酸還有讓我們快速進入熟睡狀態，以及拉長深層睡眠時間的效果。因此若覺得自己老是睡不熟，可試著攝取含有甘胺酸的蛋白質。不過，有些意見指出甘胺酸會減弱特定的抗精神病藥物的效果，所以最好避免同時攝取。<br>
+	●豬肉、豬皮、雞胸肉、龍蝦、蟹肉、蝦子、扇貝、高麗菜、竹筍、海藻、紫菜、及昆布等都是富含甘胺酸的食物。<br>
+	
+	統計指出，若以平均睡眠時間為七小時的人為基準，只睡六小時的人變胖的機率高出23%，只睡五小時的人為50%，小於等於四小時的人為73%。睡眠時間不足意味著醒著的時間比睡得久的人來得長，清醒的時候會想攝取更多的熱量，所以會變胖也自然不在話下。<br>
+	但如果睡太久也不利健康。十八歲以上的人應介於七～九小時，六十五歲以上的人應介於七～八小時才是適當的睡眠時間。由此可知，優良的睡眠品質是減重的必須因素，在檢視睡眠品質的同質，若能一併攝取蛋白質，減重將更有機會成功。<br>
+
+
+
+	【本文出處：沒睡好也會胖！如何改善易胖體質？專家：「把握剛入睡的這幾個小時！」 | Heho健康<br>
+https://heho.com.tw/archives/163655】<br><br>
+
+				
+				
+				<a class="btn btn-default page-scroll" href="#test">點我進行測驗</a>
+			</div>
+			
+		</div>
+
+	</section>
+
+	<!-- test Section -->
+	<section id="test" class="test-section">
+		<div class="container" id="middle2" >
+			<div class="row">
+				<form id="form1" runat="server">
+       				 剩餘時間：<div id='div1'></div>
+    				</form>	
+                   		
+				<p>1.哪一種物質會在睡眠中分解?</p>
+  		<p>
+  			<input type="radio" name="Q1" value="1">膽固醇
+  			<input type="radio" name="Q1" value="2">中性脂肪   <!-- 2 -->
+  			<input type="radio" name="Q1" value="3">脂肪酸   
+  			<input type="radio" name="Q1" value="4">反式脂肪br>  
+  		</p>
+  		<p><br>2.新陳代謝的速度會在進入夢鄉前幾小時內達到高峰?</p>
+  		<p>
+  			<input type="radio" name="Q2" value="1">5小時   
+  			<input type="radio" name="Q2" value="2">3小時  <!-- 2 -->
+  			<input type="radio" name="Q2" value="3">2小時   
+  			<input type="radio" name="Q2" value="4">1小時  
+  		</p>
+  		<p><br>3.在就寢前攝取何種物質可讓腳部的表面體溫上升?</p>
+  		<p>
+  			<input type="radio" name="Q3" value="1">牛奶  
+  			<input type="radio" name="Q3" value="2">熱水   
+  			<input type="radio" name="Q3" value="3">甘胺酸  <!-- 3 -->
+  			<input type="radio" name="Q3" value="4">甘醇酸   
+  		</p>
+  		<p><br>4.何者不是富含甘胺酸的食物?</p>
+  		<p>
+  			<input type="radio" name="Q4" value="1">豬肉 
+  			<input type="radio" name="Q4" value="2">雞胸肉  
+  			<input type="radio" name="Q4" value="3">蝦子   
+  			<input type="radio" name="Q4" value="4">蛤蜊   <!-- 4 -->
+  		</p>
+  		<p><br>5.18歲以上睡眠時間應介於?</p>
+  		<p>
+  			<input type="radio" name="Q5" value="1">5~7小時  
+  			<input type="radio" name="Q5" value="2">6~8小時     
+  			<input type="radio" name="Q5" value="3">7~9小時   <!-- 3 -->  
+  			<input type="radio" name="Q5" value="4">8~10小時  
+  		</p>
+   				<button onclick="javascript:main();">交卷</button>
+  		
+  				五道題中您一共答對了<font color="red"><span id="right_number"></font>題，
+  				
+      				<br>
+      				正確的題目有:<span id="right_question" style="color:red"></span>
+       				<br>
+      				錯誤的題目有:<span id="error_question" style="color:red"></span>
+                			
+          		</div>
+
+        	</div>
+			
+		
+	</section>
+
+<script>
+document.getElementById('menubtn').addEventListener('click', function (e) {
+        var currentscrollTop = window.scrollY
+        $(this).toggleClass('active');
+        $('#menuUl').toggleClass('active');
+        // debugger
+        if ($('#menuUl').hasClass('active') && !$('.menu').hasClass('dark')) {
+            $('.menu').addClass('dark')
+        } else if (currentscrollTop < 80) {
+            $('.menu').removeClass('dark')
+        }
+
+    })
+
+    $('#menuUl li').click(function () {
+        $(this).parent().find('li').each(function () {
+            if ($(this).hasClass('current-active')) {
+                $(this).toggleClass('current-active');
+            }
+        })
+        $(this).toggleClass('current-active');
+    })
+
+$(window).scroll(function () {
+    var currentscrollTop = $(window).scrollTop();
+    if (currentscrollTop >= 80) {
+        if (!$('.menu').hasClass('dark')) {
+            $('.menu').addClass('dark')
+        }
+    } else {
+        if (!$('.toggle-nav').hasClass('active')) {
+            $('.menu').removeClass('dark')
+        }
+    }
+})
+//jQuery to collapse the navbar on scroll
+var header_height  = $('.navbar').height(),
+    intro_height    = $('.intro-section').height(),
+    offset_val = intro_height + header_height;
+$(window).scroll(function() {
+  var scroll_top = $(window).scrollTop();
+    if (scroll_top >= offset_val) {
+        $(".navbar-fixed-top").addClass("top-nav-collapse");
+            $(".navbar-fixed-top").removeClass("navbar-transparent");
+    } else {
+        $(".navbar-fixed-top").removeClass("top-nav-collapse");
+      $(".navbar-fixed-top").addClass("navbar-transparent");
+    }
+});
+
+//jQuery for page scrolling feature - requires jQuery Easing plugin
+$(function() {
+    $('a.page-scroll').bind('click', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top
+        }, 1500, 'easeInOutExpo');
+        event.preventDefault();
+    });
+});
+
+// //jQuery to collapse the navbar on scroll
+// $(window).scroll(function() {
+//     if ($(".navbar").offset().top > 100) {
+//         $(".navbar-fixed-top").addClass("top-nav-collapse");
+//             $(".navbar-fixed-top").removeClass("navbar-transparent");
+//     } else {
+//         $(".navbar-fixed-top").removeClass("top-nav-collapse");
+//       $(".navbar-fixed-top").addClass("navbar-transparent");
+//     }
+// });
+
+//設定倒數秒數
+var t = 180;
+
+//顯示倒數秒數
+function showTime()
+{
+    t -= 1;
+    document.getElementById('div1').innerHTML= t;
+    
+    if(t==0)
+    {
+        main();
+	Name(name);
+	return 0;
+    }
+    
+    //每秒執行一次,showTime()
+    setTimeout("showTime()",1000);
+}
+
+//執行showTime()
+showTime();
+
+function main(){
+  var questionArray = new Array("Q1","Q2","Q3","Q4","Q5");
+  var resultArray = new Array();
+   var rightArray = new Array();
+
+
+  var aryAns = new Array(2,2,3,4,3); 
+  for (var i = 0; i < questionArray.length; i++) {
+    if (Name(questionArray[i])!=10) {
+      resultArray[i] = Name(questionArray[i]); 
+    }else{
+      alert("第"+(i+1)+"題,您未作答!!");
+      return false;
+    }
+  }
+  var right_number= 0;
+  for (var i = 0; i < questionArray.length; i++) {
+    if (aryAns[i]==resultArray[i]) {
+          right_number++;
+          rightArray[i] = 1;
+    }else{
+          rightArray[i] = 0;
+    }
+  }
+  var right_question = " ";
+  var error_question = " ";
+  for (var i = 0; i < rightArray.length; i++) {
+      if (rightArray[i] ==1 ) {
+          right_question += i+1+",";
+      }else{
+          error_question += i+1+",";
+      }
+  }
+  //var time=document.getElementById("mytime").innerHTML;
+  document.getElementById("right_number").innerText = right_number;
+  //document.getElementById("time").innerText = time;
+  if (right_question!=" ") {
+      document.getElementById("right_question").innerText = right_question;
+
+  }
+  if (error_question!=" ") {
+  document.getElementById("error_question").innerText = error_question;
+
+}
+};
+
+function Name(name)
+{
+  var temp = document.getElementsByName(name);
+  var intHot = 9;
+  for(var i=0;i<temp.length;i++)
+  {
+     if(temp[i].checked)
+      intHot = temp[i].value;
+  }
+  if (intHot==9) {
+      return 10;
+  }
+  return intHot;
+};
+
+</script>
+</body>
+</html>
